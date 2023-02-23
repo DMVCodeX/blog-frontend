@@ -28,28 +28,60 @@ function PostsNew() {
   );
 }
 
-function PostsIndex() {
+function PostsIndex(props) {
+  console.groupCollapsed(props);
   return (
     <div id="posts-index">
       <h1>All posts</h1>
-      <div className="posts">
-        <h2>Hello, I am new here!</h2>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwHsHmxoQ_Lb7t5Ifie3ono7-UKJdRz9oV_Q&usqp=CAU"
-          alt=""
-        />
-        <p>User: Diane V.</p>
-        <button>More Info</button>
-      </div>
+      {props.posts.map((post) => (
+        <div key={post.id} className="posts">
+          <h2>{post.title}</h2>
+          <h3>{post.body}</h3>
+          <img src={post.image} alt="" />
+          <p>{post.user}</p>
+          <button>More Info</button>
+        </div>
+      ))}
     </div>
   );
 }
 
 function Content() {
+  let posts = [
+    {
+      id: 1,
+      title: "Ruby",
+      body: "Ruby Basics",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfqN8TibosvoL-zcoD5gIJbbvIwQRsPXGd4w&usqp=CAU",
+      user: "Diane",
+    },
+    {
+      id: 2,
+      title: "JavaScript",
+      body: "JavaScript Basics",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3-rxVqlnVUWa1-XJrUKxDXSzrG4mKyufcXA&usqp=CAU",
+      user: "Diane",
+    },
+    {
+      id: 3,
+      title: "HTML",
+      body: "HTML Basics",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0ghZhvvXNDgKC2Gqh3npLdNuXyBvGyqxkxg&usqp=CAU",
+      user: "Diane",
+    },
+    {
+      id: 3,
+      title: "CSS",
+      body: "CSS Basics",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJhHRH4bHHcHjk9FzDeF22aLq5NPJ5foOlQ&usqp=CAU",
+      user: "Diane",
+    },
+  ];
+
   return (
     <div>
       <PostsNew />
-      <PostsIndex />
+      <PostsIndex posts={posts} />
     </div>
   );
 }
