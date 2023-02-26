@@ -4,16 +4,20 @@ export function PostsNew() {
       <h1>New post</h1>
       <form>
         <div>
-          Title: <input type="text" />
+          Title: <input className="form-control" type="text" />
         </div>
         <div>
-          Body: <input type="text" />
+          Body: <input className="form-control" type="text" />
         </div>
         <div>
-          Image: <input type="text" />
+          Image: <input className="form-control" type="text" />
         </div>
+        <p></p>
         <div>
-          <button type="submit">Create Post</button>
+          <button type="button" class="btn btn-dark">
+            Submit
+          </button>
+          <p></p>
         </div>
       </form>
     </div>
