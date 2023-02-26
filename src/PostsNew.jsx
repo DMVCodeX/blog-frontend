@@ -14,7 +14,7 @@ export function PostsNew() {
         </div>
         <p></p>
         <div>
-          <button type="button" class="btn btn-dark">
+          <button type="submit" className="btn btn-dark">
             Submit
           </button>
           <p></p>

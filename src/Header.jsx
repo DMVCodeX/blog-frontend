@@ -37,17 +37,17 @@ export function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Posts
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Action
+                    <a class="dropdown-item" href="#posts-index">
+                      All Posts
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                    <a class="dropdown-item" href="#posts-new">
+                      New Post
                     </a>
                   </li>
                   <li>
@@ -73,7 +73,9 @@ export function Header() {
           </div>
         </div>
       </nav>
-      <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a>
+      <div className="container">
+        <h1>Blog-API</h1>
+      </div>
     </header>
   );
 }
