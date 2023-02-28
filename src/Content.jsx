@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { LogIn } from "./LogIn";
 import { LogoutLink } from "./LogoutLink";
+import { PostsShow } from "./PostsShow";
 
 export function Content() {
   const [posts, setPosts] = useState([]);
