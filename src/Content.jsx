@@ -19,6 +19,13 @@ export function Content() {
     });
   };
 
+  const handleCreatePosts = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      console.log(response.data);
+      setPosts([...posts, response.data]);
+    });
+  };
+
   const handleShowPost = (post) => {
     setIsPostsShowVisible(true);
     setCurrentPost(post);
@@ -36,7 +43,7 @@ export function Content() {
       <Signup />
       <LogIn />
       <LogoutLink />
-      <PostsNew />
+      <PostsNew onCreatePosts={handleCreatePosts} />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
         <h2>{currentPost.title}</h2>

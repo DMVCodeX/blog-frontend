@@ -1,14 +1,14 @@
-import axios from "axios";
-
-export function PostsNew() {
+export function PostsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("handleSubmit");
     const params = new FormData(event.target);
-    axios.post("http://localhost:3000/posts.json", params).then((response) => {
-      console.log(response.data);
-      event.target.reset();
-    });
+    // axios.post("http://localhost:3000/posts.json", params).then((response) => {
+    //   console.log(response.data);
+    //   event.target.reset();
+    // });
+    props.onCreatePosts(params);
+    event.target.reset();
   };
 
   return (
@@ -25,9 +25,11 @@ export function PostsNew() {
           Image: <input name="image" className="form-control" type="text" />
         </div>
         <div>
+          <p></p>
           <button type="submit" className="btn btn-dark">
             Submit
           </button>
+          <p></p>
         </div>
       </form>
     </div>
