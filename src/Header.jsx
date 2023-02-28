@@ -63,9 +63,7 @@ export function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="./LogoutLink">
-                  Log Out
-                </a>
+                <LogoutLink />
               </li>
             </ul>
             <form className="d-flex" role="search">
