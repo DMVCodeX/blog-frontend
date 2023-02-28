@@ -1,5 +1,4 @@
 export function PostsIndex(props) {
-  console.groupCollapsed(props);
   return (
     <div id="posts-index">
       <h1>All posts</h1>
@@ -9,7 +8,7 @@ export function PostsIndex(props) {
           <h3>{post.body}</h3>
           <img src={post.image} alt="" />
           <p></p>
-          <button type="button" class="btn btn-dark" onClick={() => props.onSelectPost(post)}>
+          <button type="button" className="btn btn-dark" onClick={() => props.onSelectPost(post)}>
             More Info
           </button>
           <p></p>
