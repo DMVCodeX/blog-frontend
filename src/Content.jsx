@@ -33,7 +33,33 @@ export function Content() {
   };
 
   const handleHidePost = () => {
+    console.log("handleHidePost");
     setIsPostsShowVisible(false);
+  };
+
+  const handleUpdatePost = (id, params, successCallback) => {
+    console.log("handleUpdatePost", params);
+    axios.patch(`http://localhost:3000/posts/${id}.json`, params).then((response) => {
+      setPosts(
+        posts.map((post) => {
+          if (post.id === response.data.id) {
+            return response.data;
+          } else {
+            return post;
+          }
+        })
+      );
+      successCallback();
+      handleHidePost();
+    });
+  };
+
+  const handleDestroyPost = (post) => {
+    console.log("handleDestroyPost", post);
+    axios.delete("http:localhost:3000/posts/${post.id}.json").then((response) => {
+      setPosts(posts.filter((p) => p.id !== post.id));
+      handleHidePost();
+    });
   };
 
   useEffect(handleIndexPosts, []);
@@ -45,9 +71,7 @@ export function Content() {
       <PostsNew onCreatePosts={handleCreatePosts} />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
-        <h2>{currentPost.title}</h2>
-        <h2>{currentPost.body}</h2>
-        <p></p>
+        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestroyPost} />
       </Modal>
     </div>
   );
