@@ -22,7 +22,7 @@ export function PostsShow(props) {
         </div>
         <p></p>
         <div>
-          Image: <input defaultValue={props.post.width} name="image" type="text" />
+          Image: <input defaultValue={props.post.image} name="image" type="text" />
         </div>
         <p></p>
         <button type="submit" className="btn btn-dark">

@@ -6,7 +6,14 @@ export function PostsIndex(props) {
   return (
     <div id="posts-index">
       <h1>All posts</h1>
-      Search: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
+      Search Posts:{" "}
+      <input
+        className="form-control"
+        type="text"
+        value={searchFilter}
+        onChange={(event) => setSearchFilter(event.target.value)}
+      />
+      <p></p>
       <datalist id="titles">
         {props.posts.map((post) => (
           <option key={post.id} value={post.title}></option>
@@ -15,7 +22,7 @@ export function PostsIndex(props) {
       {props.posts
         .filter((post) => post.title.toLowerCase().includes(searchFilter.toLowerCase()))
         .map((post) => (
-          <div key={post.id} className="posts">
+          <div style={{ textAlign: "center" }} key={post.id} className="posts">
             <h2>{post.title}</h2>
             <h3>{post.body}</h3>
             <img src={post.image} alt="" />
@@ -29,3 +36,5 @@ export function PostsIndex(props) {
     </div>
   );
 }
+
+//TODO Update the datalist dropdown
